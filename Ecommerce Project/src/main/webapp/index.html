@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nexin</title>
+<link rel="stylesheet" href="style.css">
+
+<script type="text/javascript">
+	function signupvalidation() {
+
+		//email rijax google serach
+
+		var email = document.getElementById("semail").value
+		var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+		var pass = document.getElementById("password").value
+		var passpattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*()-])/;
+
+		var cpass = document.getElementById("cpassword").value
+		var cpasspattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*()-])/;
+
+		if (email == '') {
+			alert('Please Enter Email Id')
+			document.getElementById("semail").focus();
+			return false;
+		}
+
+		if (!emailpattern.test(email)) {
+			alert('Invalid Email')
+			document.getElementById("Semail").focus();
+			return false;
+
+		}
+
+		if (pass == '') {
+			alert('Enter Your Password')
+			document.getElemenetById("password")
+			return false;
+		}
+
+		if (!passpattern.test(pass)) {
+
+			alert('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+			document.getElementById("password").focus();
+			return false;
+
+		}
+
+		if (cpass == '') {
+			alert('Enter Your Password')
+			document.getElementById("cpassword")
+			return false
+		}
+
+		if (pass != cpass) {
+			alert('Password Not Matching')
+			document.getElementById(cpassword).focus();
+			return false
+
+		}
+		return true;
+	}
+
+	function loginvalidation() {
+
+		var email = document.getElementById("lemail").value
+		var lemailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		
+		var pass = document.getElementById("lpassword").value
+		var passpattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*()-])/;
+
+		if (email == '') {
+			alert('Enter your Email id')
+			document.getElementById("lemail")
+			return false
+		}
+
+		if (!lemailpattern.test(email)) {
+			alert('invalid Email id')
+			document.getElementById("lemail").focus();
+			return false
+		} 
+		
+		if (pass == '') {
+			alert('Enter Your Password')
+			document.getElemenetById("lpassword")
+			return false;
+		}
+		
+		return true
+
+	}
+
+	/*var email = document.getElementById("semail").value
+	var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	
+	var password = document.getElementById("password").value
+	var passwordpattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*()-])/;
+	
+	var cpass = document.getElementById("Cpassword").value
+	var cpasspattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*()-])/;
+	
+	if( email == ''){
+		
+		alert('Please Enter Your Email id')
+		document.getElementById("semail").focus();
+		return false;
+	}
+	
+	if (!emailpattern.test(email)) {
+		alert('Invalid email')
+		document.getElementById("semail").focus();
+		return false;
+	}*/
+</script>
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<div class="title-text">
+			<div class="title login">Login Form</div>
+			<div class="title signup">Signup Form</div>
+		</div>
+		<div class="form-container">
+			<div class="slide-controls">
+				<input type="radio" name="slide" id="login" checked> <input
+					type="radio" name="slide" id="signup"> <label for="login"
+					class="slide login">Login</label> <label for="signup"
+					class="slide signup">Signup</label>
+				<div class="slider-tab"></div>
+			</div>
+			<div class="form-inner">
+
+				<!--    login form start  -->
+				<form action="login.jsp" class="login" method="post"onsubmit="return loginvalidation()">
+					<div class="field">
+						<input type="text" placeholder="Enter Your Email" name="email"
+							id="email">
+					</div>
+					<div class="field">
+						<input type="password" placeholder="Password" name="password"
+							id="password">
+					</div>
+					<div class="pass-link">
+						<a href="#">Forgot password?</a>
+					</div>
+					<div class="field btn">
+						<div class="btn-layer"></div>
+						<input type="submit" value="Login">
+					</div>
+					<div class="signup-link">
+						Not a member? <a href="">Signup now</a>
+					</div>
+				</form>
+
+				<!-- login form  end -->
+
+				<!-- signup form start -->
+				<form action="userhome.jsp" method="post" class="signup"onsubmit="return signupvalidation()">
+
+					<div class="field">
+						<input type="email" placeholder="Enter Your Email" name="email"
+							id="email">
+
+
+
+					</div>
+					<div class="field">
+						<input type="password" placeholder="Password" name="password"
+							id="password">
+					</div>
+					<div class="field">
+						<input type="password" placeholder="Confirm password"
+							name="cpassword" id="cpassword">
+					</div>
+					<div class="field btn">
+						<div class="btn-layer"></div>
+						<input type="submit" value="Signup" id="register">
+					</div>
+				</form>
+
+				<!-- signup form end -->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
